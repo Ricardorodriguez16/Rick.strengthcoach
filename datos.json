@@ -48,11 +48,11 @@
   "periodos": ["2026-06", "2026-07", "2026-08"],
 
   "documento": {
-    "dirigidoA": "BANCO DE BOGOTÁ",
+    "dirigidoA": "",
     "ciudadExpedicion": "Malambo, Atlántico",
     "fechaExpedicion": "2026-09-01",
     "consecutivo": "CPS-2026-000",
-    "motivo": "a solicitud del interesado, para trámite ante el Banco de Bogotá"
+    "motivo": "a solicitud del interesado"
   },
 
   "retenciones": {

@@ -29,7 +29,7 @@ function indice(datos, archivos) {
 
   const cuerpo = `
 ${encabezado(datos.contratante, { fecha: fechaLarga(datos.documento.fechaExpedicion) })}
-${titulo('DOCUMENTACIÓN CONTRACTUAL', `${datos.contratista.nombre || 'Sin diligenciar'} · ${datos.documento.dirigidoA}`)}
+${titulo('DOCUMENTACIÓN CONTRACTUAL', [datos.contratista.nombre, datos.documento.dirigidoA].filter(Boolean).join(' · '))}
 <ul>${filas}</ul>
 <div class="pie">Cada documento se imprime en A4 desde el navegador: Imprimir → Guardar como PDF,
 sin encabezados ni pies de página. Para actualizar los datos, edita <code>datos.json</code> y vuelve

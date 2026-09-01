@@ -1,8 +1,11 @@
 # Documentación contractual — Unidad Pedagógica Bolivariana
 
-Genera los documentos que el **Banco de Bogotá** pide a Ricardo Rafael Rodríguez García, asesor
-jurídico de la institución bajo contrato de prestación de servicios. Se diligencia un solo archivo
-y salen todos con el escudo, el NIT y la firma de la rectoría.
+Genera los documentos que se le piden a Ricardo Rafael Rodríguez García, asesor jurídico de la
+institución bajo contrato de prestación de servicios. Se diligencia un solo archivo y salen todos
+con el escudo, el NIT y la firma de la rectoría.
+
+Los documentos salen sin destinatario. Si un trámite pide que vayan dirigidos a una entidad en
+concreto, escríbela en `documento.dirigidoA` y aparece bajo el encabezado.
 
 | Documento | Archivo |
 |---|---|

@@ -104,7 +104,7 @@ function certificacionAnioEnCurso(d) {
   const cuerpo = `
 ${encabezado(e, { consecutivo: doc.consecutivo, fecha: `${doc.ciudadExpedicion}, ${fechaLarga(doc.fechaExpedicion)}` })}
 
-<p class="destinatario"><strong>${esc(doc.dirigidoA || 'A QUIEN INTERESE')}</strong></p>
+${doc.dirigidoA ? `<p class="destinatario"><strong>${esc(doc.dirigidoA)}</strong></p>` : ''}
 
 ${titulo('CERTIFICACIÓN DE RETENCIÓN EN LA FUENTE', `HONORARIOS · AÑO GRAVABLE ${r.anioEnCurso}`)}
 
