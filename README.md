@@ -78,15 +78,13 @@ efectivamente se consignó.
 
 ## Qué falta diligenciar
 
-En `datos.json`, y el generador lo lista al terminar:
-
-- `contratista.banco` y `contratista.cuenta` — dónde se consigna el pago
-- `contratante.telefono` y `contratante.correo` — datos de verificación para el banco
-- `documento.consecutivo` — el radicado interno de la certificación
+Queda solo `documento.consecutivo`, el radicado interno de la certificación, que hoy sale como
+`CPS-2026-000`. El generador avisa al terminar si algún campo obligatorio quedó vacío.
 
 Ya están cargados el NIT (900.385.699-4, con dígito de verificación), el escudo
-(`activos/logo.jpg`), la firma de Claudia García como rectora y representante legal (C.C. 32.857.367)
-y los datos del contrato.
+(`activos/logo.jpg`), la firma de Claudia García como rectora y representante legal
+(C.C. 32.857.367), el contacto de la institución (605 376 0051 · upb_86@hotmail.com), los datos del
+contrato y la cuenta Bancolombia 76937190839 donde se consignan los honorarios.
 
 ## Estructura
 
