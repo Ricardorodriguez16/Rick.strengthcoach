@@ -1,7 +1,9 @@
 {
   "empleador": {
     "nombre": "UNIDAD PEDAGÓGICA BOLIVARIANA",
-    "nit": "",
+    "lema": "Sembrando ideales nobles en las nuevas generaciones",
+    "nit": "900.385.699-4",
+    "logo": "activos/logo.jpg",
     "direccion": "Carrera 27 No. 13 - 79",
     "ciudad": "Malambo",
     "departamento": "Atlántico",
@@ -9,14 +11,16 @@
     "correo": "",
     "sitioWeb": "upbolivariana.com",
     "firmante": {
-      "nombre": "",
-      "cargo": "Rector(a) y Representante Legal",
-      "documento": ""
+      "nombre": "CLAUDIA GARCÍA",
+      "cargo": "Rectora y Representante Legal",
+      "documento": "32.857.367",
+      "genero": "F"
     }
   },
 
   "empleado": {
     "nombre": "",
+    "genero": "",
     "tipoDocumento": "C.C.",
     "documento": "",
     "cargo": "",
@@ -30,7 +34,7 @@
   },
 
   "salario": {
-    "basicoMensual": 1750905,
+    "basicoMensual": 2500000,
     "auxilioTransporte": 249095,
     "porcentajeSalud": 0.04,
     "porcentajePension": 0.04
@@ -43,20 +47,21 @@
     "ciudadExpedicion": "Malambo, Atlántico",
     "fechaExpedicion": "2026-09-01",
     "consecutivo": "CL-2026-000",
-    "motivo": "a solicitud del(la) interesado(a)"
+    "motivo": "a solicitud de la persona interesada"
   },
 
   "retenciones": {
     "anioGravable": 2025,
     "mesesLaborados": 12,
-    "salarioMensualDelAnio": 1423500,
+    "salarioMensualDelAnio": 2500000,
     "auxilioTransporteDelAnio": 200000,
     "prestacionesSociales": null,
     "cesantiasEInteresesPagados": null,
     "otrosPagos": null,
-    "retencionPracticada": 0,
+    "retencionPracticada": null,
     "ciudadConsignacion": "Malambo",
     "uvtAnioEnCurso": 52374,
-    "anioEnCurso": 2026
+    "anioEnCurso": 2026,
+    "uvtAnioGravable": 49799
   }
 }

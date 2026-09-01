@@ -1,53 +1,56 @@
 'use strict';
 
-const { documento, encabezado, firma, aviso } = require('./comun');
-const { moneda, monedaEnLetras, fechaLarga, dato, esc } = require('../lib/formato');
+const { documento, encabezado, titulo, firmas } = require('./comun');
+const { moneda, monedaEnLetras, fechaLarga, dato, esc, concordancia } = require('../lib/formato');
 
 module.exports = function constanciaLaboral(d) {
   const { empleador: e, empleado: t, salario: s, constancia: c } = d;
-  const totalMensual = s.basicoMensual + s.auxilioTransporte;
+  const g = concordancia(t.genero);
+  const gf = concordancia(e.firmante.genero);
+  const total = s.basicoMensual + s.auxilioTransporte;
+
+  const contacto = [e.telefono, e.correo].filter(Boolean).map(esc).join(' o al correo ');
 
   const cuerpo = `
-${aviso('completa en <code>datos.json</code> los campos vacíos (marcados con guiones) y vuelve a ejecutar <code>node generar.js</code>.')}
-${encabezado(e)}
+${encabezado(e, { consecutivo: c.consecutivo, fecha: `${c.ciudadExpedicion}, ${fechaLarga(c.fechaExpedicion)}` })}
 
-<div class="consecutivo">${esc(c.consecutivo || '')}</div>
-<p>${esc(c.ciudadExpedicion)}, ${fechaLarga(c.fechaExpedicion)}</p>
+<p class="destinatario"><strong>${esc(c.dirigidoA || 'A QUIEN INTERESE')}</strong></p>
 
-<p><strong>${esc(c.dirigidoA || 'A QUIEN INTERESE')}</strong></p>
+${titulo('CONSTANCIA LABORAL')}
 
-<div class="titulo">CONSTANCIA LABORAL</div>
+<p>${esc(gf.suscrito)} ${esc(e.firmante.cargo || 'Representante legal')} de
+<strong>${esc(e.nombre)}</strong>, institución educativa identificada con NIT
+${esc(dato(e.nit, 14))} y domiciliada en ${esc(e.direccion)} de ${esc(e.ciudad)}
+(${esc(e.departamento)}),</p>
 
-<p>El(la) suscrito(a) ${esc(e.firmante.cargo || 'Representante Legal')} de
-<strong>${esc(e.nombre)}</strong>, identificada con NIT ${esc(dato(e.nit, 14))}, con domicilio en
-${esc(e.direccion)}, ${esc(e.ciudad)} (${esc(e.departamento)}),</p>
+<div class="certifica">HACE CONSTAR</div>
 
-<div class="certifica">HACE CONSTAR QUE:</div>
+<p>Que ${esc(g.senor)} <strong>${esc(dato(t.nombre, 32))}</strong>, ${esc(g.identificado)} con
+${esc(t.tipoDocumento)} No. ${esc(dato(t.documento, 14))}, hace parte del equipo de esta institución
+desde el <strong>${fechaLarga(t.fechaIngreso)}</strong>, donde se desempeña como
+<strong>${esc(dato(t.cargo, 24))}</strong> mediante contrato de trabajo a
+${esc(t.tipoContrato.toLowerCase())} en jornada de ${esc(t.jornada.toLowerCase())}.</p>
 
-<p>El(la) señor(a) <strong>${esc(dato(t.nombre, 34))}</strong>, identificado(a) con
-${esc(t.tipoDocumento)} No. ${esc(dato(t.documento, 16))}, labora en esta institución desde el
-<strong>${fechaLarga(t.fechaIngreso)}</strong>, desempeñando el cargo de
-<strong>${esc(dato(t.cargo, 26))}</strong>, mediante contrato de trabajo a
-<strong>${esc(t.tipoContrato)}</strong> en jornada de ${esc(t.jornada)}.</p>
+<p>Su asignación básica mensual es de <strong>${moneda(s.basicoMensual)}</strong>
+(${monedaEnLetras(s.basicoMensual)}), a la que se suma el auxilio de transporte de
+${moneda(s.auxilioTransporte)} (${monedaEnLetras(s.auxilioTransporte)}), para un ingreso mensual de
+<strong>${moneda(total)}</strong> (${monedaEnLetras(total)}).</p>
 
-<p>Su asignación mensual asciende a la suma de <strong>${moneda(s.basicoMensual)}</strong>
-(${monedaEnLetras(s.basicoMensual)}) por concepto de salario básico, más
-<strong>${moneda(s.auxilioTransporte)}</strong> (${monedaEnLetras(s.auxilioTransporte)}) por
-auxilio de transporte, para un ingreso mensual total de <strong>${moneda(totalMensual)}</strong>
-(${monedaEnLetras(totalMensual)}).</p>
+<p>A la fecha el vínculo laboral se encuentra vigente y ${esc(g.senor.split(' ')[0])}
+${esc(g.trabajador)} está ${esc(g.afiliado)} al Sistema de Seguridad Social Integral en salud,
+pensión y riesgos laborales, con los aportes al día conforme a la ley.</p>
 
-<p>A la fecha de expedición de este documento el vínculo laboral se encuentra vigente y el(la)
-trabajador(a) está afiliado(a) al Sistema de Seguridad Social Integral en salud, pensión y riesgos
-laborales, conforme a la normatividad vigente.</p>
+<p>La presente constancia se expide ${esc(c.motivo || 'a solicitud de la persona interesada')} en
+${esc(c.ciudadExpedicion)}, el ${fechaLarga(c.fechaExpedicion)}.${
+  contacto ? ` Con gusto ampliamos cualquier información al ${contacto}.` : ''}</p>
 
-<p>La presente constancia se expide ${esc(c.motivo || 'a solicitud del(la) interesado(a)')}, en
-${esc(c.ciudadExpedicion)}, el ${fechaLarga(c.fechaExpedicion)}.</p>
+<p>Cordialmente,</p>
 
-${firma(e)}
+${firmas(e)}
 
-<div class="pie">Documento expedido por el empleador para fines informativos. Su validez está sujeta a
-la firma del representante legal. Para verificar la autenticidad de esta constancia comuníquese con
-${esc(e.nombre)} — ${esc(dato(e.telefono, 14))} ${esc(e.correo ? '· ' + e.correo : '')}.</div>
+<div class="pie">Documento expedido por el empleador. Su validez está sujeta a la firma
+${esc(gf.su)} ${esc(e.firmante.cargo || 'representante legal')}. Para verificar su autenticidad
+comuníquese con ${esc(e.nombre)}${contacto ? ` al ${contacto}` : ''}.</div>
 `;
 
   return documento({ titulo: 'Constancia laboral — ' + (t.nombre || 'sin diligenciar'), cuerpo });

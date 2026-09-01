@@ -2,43 +2,74 @@
 
 // Hoja de estilos común: pensada para imprimir / "Guardar como PDF" en A4.
 module.exports = `
-  @page { size: A4; margin: 20mm 18mm; }
+  @page { size: A4; margin: 18mm 16mm; }
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 20mm 18mm; background: #f2f2f2;
-    font-family: "Times New Roman", Georgia, serif; font-size: 12pt; color: #111;
-    line-height: 1.55;
+    margin: 0; padding: 18mm 0; background: #eceef1;
+    font-family: "Times New Roman", Georgia, serif; font-size: 11.5pt; color: #1a1a1a;
+    line-height: 1.6;
   }
   .hoja {
-    max-width: 190mm; margin: 0 auto; background: #fff; padding: 14mm 14mm 10mm;
-    box-shadow: 0 1px 6px rgba(0,0,0,.18);
+    width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff;
+    padding: 16mm 18mm 14mm; box-shadow: 0 2px 10px rgba(0,0,0,.14);
   }
-  .encabezado { text-align: center; border-bottom: 1.5pt solid #14387f; padding-bottom: 8pt; margin-bottom: 18pt; }
-  .encabezado .nombre { font-size: 15pt; font-weight: 700; letter-spacing: .5pt; color: #14387f; }
-  .encabezado .lema { font-style: italic; font-size: 10pt; color: #444; margin-top: 2pt; }
-  .encabezado .contacto { font-size: 9.5pt; color: #444; margin-top: 4pt; }
-  .titulo { text-align: center; font-size: 13pt; font-weight: 700; letter-spacing: 1.5pt;
-            text-decoration: underline; margin: 22pt 0 18pt; }
-  .consecutivo { text-align: right; font-size: 10pt; color: #555; }
+
+  /* Encabezado con escudo */
+  .encabezado { display: flex; align-items: center; gap: 12mm;
+                border-bottom: 2pt solid #1b3a75; padding-bottom: 9pt; margin-bottom: 6pt; }
+  .encabezado img { width: 24mm; height: auto; flex: none; }
+  .encabezado .datos { flex: 1; }
+  .encabezado .nombre { font-size: 15.5pt; font-weight: 700; letter-spacing: .6pt; color: #1b3a75; }
+  .encabezado .lema { font-style: italic; font-size: 10pt; color: #55606f; margin: 1pt 0 5pt; }
+  .encabezado .contacto { font-size: 9pt; color: #55606f; line-height: 1.45; }
+  .cintillo { font-size: 8.5pt; color: #8a93a0; letter-spacing: .4pt;
+              display: flex; justify-content: space-between; margin-bottom: 20pt; }
+
+  /* Títulos y párrafos */
+  .titulo { text-align: center; margin: 24pt 0 6pt; }
+  .titulo h1 { font-size: 13pt; font-weight: 700; letter-spacing: 2.5pt; margin: 0; }
+  .titulo .sub { font-size: 10pt; letter-spacing: 1.2pt; color: #55606f; margin-top: 3pt; }
+  .titulo::after { content: ""; display: block; width: 26mm; height: 1.5pt;
+                   background: #1b3a75; margin: 9pt auto 20pt; }
   p { text-align: justify; margin: 0 0 11pt; }
-  .certifica { text-align: center; font-weight: 700; letter-spacing: 3pt; margin: 16pt 0; }
-  table { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-bottom: 12pt; }
-  th, td { border: .5pt solid #999; padding: 4pt 6pt; vertical-align: top; }
-  th { background: #eef1f7; text-align: left; font-weight: 700; }
+  .destinatario { margin-bottom: 4pt; }
+  .destinatario strong { letter-spacing: .8pt; }
+  .certifica { text-align: center; font-weight: 700; letter-spacing: 4pt;
+               margin: 18pt 0; color: #1b3a75; }
+
+  /* Tablas */
+  table { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 0 0 14pt; }
+  th, td { border: .5pt solid #c3c9d2; padding: 5pt 7pt; vertical-align: top; }
+  th { background: #1b3a75; color: #fff; text-align: left; font-weight: 700;
+       letter-spacing: .3pt; border-color: #1b3a75; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  tr.total td { font-weight: 700; background: #eef1f7; }
-  .ficha td:nth-child(odd) { background: #f7f8fa; width: 22%; font-weight: 700; }
-  .firma { margin-top: 46pt; }
-  .firma .linea { border-top: .8pt solid #111; width: 62mm; margin-bottom: 4pt; }
-  .firma .rol { font-size: 10.5pt; }
-  .pie { margin-top: 20pt; border-top: .5pt solid #bbb; padding-top: 6pt;
-         font-size: 8.5pt; color: #666; text-align: justify; }
-  .aviso { background: #fff8e1; border: .5pt solid #e0c069; padding: 8pt 10pt;
-           font-size: 9pt; color: #5c4600; margin-bottom: 14pt; }
-  .vacio { color: #b00020; }
+  tr.total td { font-weight: 700; background: #eaeef6; }
+  tr.destacado td { font-weight: 700; background: #1b3a75; color: #fff; border-color: #1b3a75;
+                    font-size: 11pt; letter-spacing: .3pt; }
+  .ficha td.rotulo { background: #f4f6f9; width: 24%; font-weight: 700; color: #3b465a; }
+  .ficha td { padding: 5pt 7pt; }
+  .enletras { font-size: 9.5pt; font-style: italic; color: #55606f; }
+
+  /* Firmas */
+  .firmas { width: 100%; border: none; margin-top: 34pt; page-break-inside: avoid; }
+  .firmas td { border: none; padding: 0; vertical-align: top; }
+  .rubrica { border-top: .8pt solid #1a1a1a; padding-top: 5pt; font-size: 10pt; line-height: 1.45; }
+  .rubrica .quien { font-size: 10.5pt; font-weight: 700; }
+  .espacio-firma { height: 22mm; }
+
+  .pie { margin-top: 22pt; border-top: .5pt solid #d4d9e0; padding-top: 7pt;
+         font-size: 8pt; color: #7b8593; text-align: justify; line-height: 1.5; }
+  .vacio { color: #9aa3b0; }
+
+  /* Índice */
+  .indice .hoja { min-height: 0; }
+  .indice ul { list-style: none; padding: 0; margin: 0; }
+  .indice li { border-bottom: .5pt solid #dde1e7; padding: 10pt 0; }
+  .indice a { color: #1b3a75; text-decoration: none; font-size: 12pt; font-weight: 700; }
+  .indice small { display: block; color: #6b7482; font-size: 9.5pt; font-family: Arial, sans-serif; }
+
   @media print {
     body { background: #fff; padding: 0; }
-    .hoja { box-shadow: none; padding: 0; max-width: none; }
-    .aviso { display: none; }
+    .hoja { box-shadow: none; padding: 0; width: auto; min-height: 0; }
   }
 `;
