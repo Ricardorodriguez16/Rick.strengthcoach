@@ -1,5 +1,5 @@
 {
-  "empleador": {
+  "contratante": {
     "nombre": "UNIDAD PEDAGÓGICA BOLIVARIANA",
     "lema": "Sembrando ideales nobles en las nuevas generaciones",
     "nit": "900.385.699-4",
@@ -18,50 +18,50 @@
     }
   },
 
-  "empleado": {
-    "nombre": "",
-    "genero": "",
+  "contratista": {
+    "nombre": "RICARDO RAFAEL RODRÍGUEZ GARCÍA",
+    "genero": "M",
     "tipoDocumento": "C.C.",
-    "documento": "",
-    "cargo": "",
-    "tipoContrato": "Término indefinido",
-    "jornada": "Tiempo completo",
-    "fechaIngreso": "",
-    "eps": "",
-    "fondoPension": "",
+    "documento": "1.043.662.188",
+    "profesion": "Abogado",
     "banco": "",
     "cuenta": ""
   },
 
-  "salario": {
-    "basicoMensual": 2500000,
-    "auxilioTransporte": 249095,
-    "porcentajeSalud": 0.04,
-    "porcentajePension": 0.04
+  "contrato": {
+    "modalidad": "Contrato de prestación de servicios profesionales",
+    "rol": "Asesor Jurídico",
+    "objeto": "la asesoría jurídica de la institución y su representación en los asuntos legales que se le encomienden",
+    "fechaInicio": "2025-02-10",
+    "vigente": true,
+    "honorariosMensuales": 2500000,
+    "formaPago": "Mensual, previa presentación de cuenta de cobro"
+  },
+
+  "retencion": {
+    "modo": "art383",
+    "tarifaHonorarios": 0.10,
+    "salarioMinimo": 1750905,
+    "salarioMinimoAnioGravable": 1423500
   },
 
   "periodos": ["2026-06", "2026-07", "2026-08"],
 
-  "constancia": {
-    "dirigidoA": "A QUIEN INTERESE",
+  "documento": {
+    "dirigidoA": "BANCO DE BOGOTÁ",
     "ciudadExpedicion": "Malambo, Atlántico",
     "fechaExpedicion": "2026-09-01",
-    "consecutivo": "CL-2026-000",
-    "motivo": "a solicitud de la persona interesada"
+    "consecutivo": "CPS-2026-000",
+    "motivo": "a solicitud del interesado, para trámite ante el Banco de Bogotá"
   },
 
   "retenciones": {
     "anioGravable": 2025,
-    "mesesLaborados": 12,
-    "salarioMensualDelAnio": 2500000,
-    "auxilioTransporteDelAnio": 200000,
-    "prestacionesSociales": null,
-    "cesantiasEInteresesPagados": null,
-    "otrosPagos": null,
-    "retencionPracticada": null,
-    "ciudadConsignacion": "Malambo",
-    "uvtAnioEnCurso": 52374,
     "anioEnCurso": 2026,
-    "uvtAnioGravable": 49799
+    "uvtAnioGravable": 49799,
+    "uvtAnioEnCurso": 52374,
+    "totalPagos": null,
+    "retencionPracticada": null,
+    "ciudadConsignacion": "Malambo"
   }
 }
