@@ -75,10 +75,6 @@ ${titulo('CERTIFICADO DE INGRESOS Y RETENCIONES', `HONORARIOS · AÑO GRAVABLE $
 en cumplimiento del artículo 381 del Estatuto Tributario.</p>
 
 ${firmas(e)}
-
-<div class="pie">Certificado expedido con el contenido que exige el artículo 381 del Estatuto
-Tributario para retenciones por conceptos distintos a los de una relación laboral, firmado por el
-agente retenedor.</div>
 `;
 
   return documento({
@@ -145,9 +141,6 @@ el ${fechaLarga(doc.fechaExpedicion)}.</p>
 <p>Cordialmente,</p>
 
 ${firmas(e)}
-
-<div class="pie">Esta certificación no reemplaza el certificado de ingresos y retenciones del año
-gravable anterior (artículo 381 del Estatuto Tributario), que se expide una vez cerrado el año.</div>
 `;
 
   return documento({

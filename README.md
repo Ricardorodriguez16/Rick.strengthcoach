@@ -85,8 +85,9 @@ efectivamente se consignó.
 
 ## Qué falta diligenciar
 
-Queda solo `documento.consecutivo`, el radicado interno de la certificación, que hoy sale como
-`CPS-2026-000`. El generador avisa al terminar si algún campo obligatorio quedó vacío.
+No queda nada pendiente; el generador avisa al terminar si algún campo obligatorio quedó vacío.
+`documento.consecutivo` está en blanco a propósito: si el colegio lleva radicado interno, se escribe
+ahí y aparece a la izquierda del cintillo bajo el encabezado.
 
 Ya están cargados el NIT (900.385.699-4, con dígito de verificación), el escudo
 (`activos/logo.jpg`), la firma de Claudia García como rectora y representante legal

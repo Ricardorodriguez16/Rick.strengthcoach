@@ -54,17 +54,6 @@ concepto de honorarios profesionales de ${esc(p.nombre)}. A la fecha no se me ad
 este periodo.</p>
 
 ${firmas(e, { ...c, rol: 'Contratista' })}
-
-<div class="pie">Pago derivado de un contrato de prestación de servicios: no constituye salario ni
-genera relación laboral, y ${esc(g.el)} contratista asume por su cuenta los aportes al Sistema de
-Seguridad Social Integral como independiente (art. 244 de la Ley 1955 de 2019), sobre un IBC del
-40 % del contrato mensualizado con piso de un salario mínimo — ${moneda(r.aportes.ibc)} para este
-periodo. ${r.retencion === 0
-  ? `No se practica retención en la fuente: depurados los aportes obligatorios y la renta exenta del
-     25 %, la base gravable del mes (${moneda(r.baseGravable)}, equivalente a ${r.baseUvt} UVT) no
-     alcanza las 95 UVT — ${moneda(r.topePesos)} — desde las que aplica la tabla del artículo 383 del
-     Estatuto Tributario.`
-  : `La retención corresponde a la tarifa de honorarios del artículo 392 del Estatuto Tributario.`}</div>
 `;
 
   return documento({

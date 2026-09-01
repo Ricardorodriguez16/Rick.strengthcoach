@@ -50,10 +50,6 @@ ${esc(doc.ciudadExpedicion)}, el ${fechaLarga(doc.fechaExpedicion)}.${
 <p>Cordialmente,</p>
 
 ${firmas(e)}
-
-<div class="pie">Documento expedido y firmado por ${esc(gf.el)} ${esc((e.firmante.cargo || 'representante legal').toLowerCase())}
-de la institución contratante. Para verificar su autenticidad comuníquese con
-${esc(e.nombre)}${contacto ? ` al ${contacto}` : ''}.</div>
 `;
 
   return documento({ titulo: 'Certificación contractual — ' + (c.nombre || 'sin diligenciar'), cuerpo });
