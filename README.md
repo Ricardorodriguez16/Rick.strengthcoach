@@ -17,13 +17,17 @@ concreto, escríbela en `documento.dirigidoA` y aparece bajo el encabezado.
 ## Uso
 
 ```bash
-node generar.js          # Node 18+, sin dependencias
+node generar.js          # HTML en salida/ — Node 18+, sin dependencias
+node pdf.js              # PDF en pdf/ — usa el Chrome que tengas instalado
 ```
 
-Los archivos quedan en `salida/`. Abre `salida/index.html` para el listado. Para el PDF: abrir en el
-navegador → **Imprimir** → **Guardar como PDF**, con márgenes por defecto y sin encabezados ni pies
-del navegador. El escudo va incrustado en el HTML, así que el archivo se puede enviar por correo sin
-adjuntar la imagen aparte.
+`salida/index.html` es el listado con enlaces a cada documento. `pdf.js` busca Chrome en las rutas
+habituales de macOS, Windows y Linux; si no lo encuentra, se le indica la ruta:
+`CHROME="/ruta/a/chrome" node pdf.js`. También sirve abrir el HTML en el navegador e imprimir a PDF
+con márgenes por defecto y sin encabezados ni pies del navegador.
+
+Cada documento cabe en una página A4. El escudo y las firmas van incrustados en el HTML, así que el
+archivo se puede enviar por correo sin adjuntar imágenes aparte.
 
 ## Por qué no es una constancia laboral
 
@@ -97,8 +101,10 @@ generar.js              punto de entrada
 activos/logo.jpg        escudo de la institución
 lib/formato.js          moneda, fechas, cifras en letras, concordancia de género
 lib/retencion.js        aportes del independiente, depuración y tabla del art. 383 E.T.
+pdf.js                  exporta salida/ a PDF con Chrome
 plantillas/             estilos, encabezado y firmas comunes + un archivo por documento
-salida/                 documentos generados
+salida/                 documentos generados en HTML
+pdf/                    los mismos documentos en PDF
 ```
 
 ## Notas

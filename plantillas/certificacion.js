@@ -27,19 +27,13 @@ ${esc(dato(e.nit, 14))} y domiciliada en ${esc(e.direccion)} de ${esc(e.ciudad)}
 <p>Que ${esc(g.senor)} <strong>${esc(dato(c.nombre, 32))}</strong>, ${esc(g.identificado)} con
 ${esc(c.tipoDocumento)} No. ${esc(dato(c.documento, 14))}, de profesión ${esc(c.profesion.toLowerCase())},
 presta sus servicios profesionales a esta institución como <strong>${esc(k.rol)}</strong> desde el
-<strong>${fechaLarga(k.fechaInicio)}</strong>, mediante contrato de prestación de servicios cuyo
-objeto es ${esc(k.objeto)}.</p>
-
-<p>Por dichos servicios percibe honorarios mensuales de <strong>${moneda(k.honorariosMensuales)}</strong>
-(${monedaEnLetras(k.honorariosMensuales)}), que se pagan previa presentación de la respectiva cuenta
-de cobro.</p>
+<strong>${fechaLarga(k.fechaInicio)}</strong>, en los siguientes términos:</p>
 
 <table class="ficha">
-  ${rotulo('Contratista', esc(dato(c.nombre, 30)) + ' · ' + esc(c.tipoDocumento) + ' ' + esc(dato(c.documento, 12)))}
   ${rotulo('Modalidad', esc(k.modalidad))}
-  ${rotulo('Rol', esc(k.rol))}
+  ${rotulo('Objeto', esc(k.objeto.replace(/^la /, 'La ')))}
   ${rotulo('Fecha de inicio', fechaLarga(k.fechaInicio))}
-  ${rotulo('Honorarios mensuales', '<strong>' + moneda(k.honorariosMensuales) + '</strong>')}
+  ${rotulo('Honorarios mensuales', '<strong>' + moneda(k.honorariosMensuales) + '</strong> · ' + monedaEnLetras(k.honorariosMensuales))}
   ${rotulo('Forma de pago', esc(k.formaPago))}
   ${rotulo('Estado del contrato', k.vigente ? 'Vigente a la fecha de expedición' : 'Terminado')}
 </table>
