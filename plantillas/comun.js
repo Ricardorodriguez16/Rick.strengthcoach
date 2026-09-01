@@ -6,21 +6,22 @@ const estilos = require('./estilos');
 const { esc, dato } = require('../lib/formato');
 
 const RAIZ = path.join(__dirname, '..');
-const cacheLogo = new Map();
+const cacheImagenes = new Map();
 
-// El escudo se incrusta como data URI para que el HTML viaje solo (correo, PDF, impresión).
-function logoIncrustado(ruta) {
+// Escudo y firmas se incrustan como data URI para que el HTML viaje solo
+// (correo, PDF, impresión) sin depender de archivos sueltos.
+function imagenIncrustada(ruta) {
   if (!ruta) return '';
-  if (cacheLogo.has(ruta)) return cacheLogo.get(ruta);
+  if (cacheImagenes.has(ruta)) return cacheImagenes.get(ruta);
   let uri = '';
   try {
     const abs = path.join(RAIZ, ruta);
     const tipo = path.extname(abs).toLowerCase() === '.png' ? 'image/png' : 'image/jpeg';
     uri = `data:${tipo};base64,${fs.readFileSync(abs).toString('base64')}`;
   } catch {
-    console.warn(`  aviso: no se encontró el logo en ${ruta}`);
+    console.warn(`  aviso: no se encontró la imagen ${ruta}`);
   }
-  cacheLogo.set(ruta, uri);
+  cacheImagenes.set(ruta, uri);
   return uri;
 }
 
@@ -43,7 +44,7 @@ ${cuerpo}
 }
 
 function encabezado(e, { consecutivo = '', fecha = '' } = {}) {
-  const logo = logoIncrustado(e.logo);
+  const logo = imagenIncrustada(e.logo);
   const contacto = [
     e.direccion && `${e.direccion} · ${e.ciudad}, ${e.departamento}`,
     [e.telefono, e.correo].filter(Boolean).join(' · '),
@@ -65,34 +66,39 @@ function titulo(principal, sub = '') {
   return `<div class="titulo"><h1>${esc(principal)}</h1>${sub ? `<div class="sub">${esc(sub)}</div>` : ''}</div>`;
 }
 
-// Firma del representante legal, sola o junto a la del trabajador.
-function firmas(e, trabajador = null) {
+// Firma del representante legal, sola o junto a la del contratista.
+function firmas(e, contratista = null) {
   const f = e.firmante || {};
-  const empleador = `<div class="rubrica">
-    <div class="quien">${esc(f.nombre || '')}</div>
-    ${esc(f.cargo || 'Representante legal')}<br>
-    C.C. ${esc(dato(f.documento, 14))}<br>
-    ${esc(e.nombre)}
+
+  const bloque = (firma, quien, lineas) => `<div class="firma-espacio">${
+    firma ? `<img class="firma" src="${firma}" alt="Firma de ${esc(quien)}">` : ''
+  }</div>
+  <div class="rubrica">
+    <div class="quien">${esc(quien)}</div>
+    ${lineas.map(esc).join('<br>')}
   </div>`;
 
-  if (!trabajador) {
-    return `<table class="firmas"><tr><td class="espacio-firma" style="width:58%"></td><td style="width:42%"></td></tr>
-      <tr><td>${empleador}</td><td></td></tr></table>`;
+  const empleador = bloque(imagenIncrustada(f.firma), f.nombre || '', [
+    f.cargo || 'Representante legal',
+    `C.C. ${dato(f.documento, 14)}`,
+    e.nombre
+  ]);
+
+  if (!contratista) {
+    return `<table class="firmas"><tr>
+      <td style="width:58%">${empleador}</td><td style="width:42%"></td>
+    </tr></table>`;
   }
 
-  const t = trabajador;
-  return `<table class="firmas">
-    <tr><td class="espacio-firma" style="width:46%"></td><td style="width:8%"></td><td style="width:46%"></td></tr>
-    <tr>
-      <td><div class="rubrica">
-        <div class="quien">${esc(t.nombre || '')}</div>
-        ${esc(t.tipoDocumento)} ${esc(dato(t.documento, 14))}<br>
-        ${esc(t.rol || 'Trabajador')}
-      </div></td>
-      <td></td>
-      <td>${empleador}</td>
-    </tr>
-  </table>`;
+  const c = contratista;
+  return `<table class="firmas"><tr>
+    <td style="width:46%">${bloque(imagenIncrustada(c.firma), c.nombre || '', [
+      `${c.tipoDocumento} ${dato(c.documento, 14)}`,
+      c.rol || 'Contratista'
+    ])}</td>
+    <td style="width:8%"></td>
+    <td style="width:46%">${empleador}</td>
+  </tr></table>`;
 }
 
-module.exports = { documento, encabezado, titulo, firmas, logoIncrustado };
+module.exports = { documento, encabezado, titulo, firmas, imagenIncrustada };

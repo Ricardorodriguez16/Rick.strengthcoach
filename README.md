@@ -103,8 +103,10 @@ salida/                 documentos generados
 
 ## Notas
 
-- Los documentos salen sin firmar por diseño: solo tienen validez con la firma de la representante
-  legal, y los comprobantes también con la del contratista.
+- Las firmas van incrustadas en el HTML (`activos/firma-rectora.png` y
+  `activos/firma-contratista.png`), recortadas y con el fondo en transparente, así que los PDF salen
+  firmados sin tener que imprimir y escanear. Conviene que la rectora dé el visto bueno a los
+  documentos finales antes de radicarlos.
 - Los pagos de 2025 se calculan desde el 10 de febrero (10,7 meses equivalentes). Si en febrero se
   cobró el mes completo, o hubo meses sin cuenta de cobro, ajusta `retenciones.totalPagos`.
 - Los aportes del independiente se calculan sobre el IBC del 40 % del contrato mensualizado con piso

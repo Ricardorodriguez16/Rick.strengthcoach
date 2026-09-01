@@ -77,8 +77,8 @@ en cumplimiento del artículo 381 del Estatuto Tributario.</p>
 ${firmas(e)}
 
 <div class="pie">Certificado expedido con el contenido que exige el artículo 381 del Estatuto
-Tributario para retenciones por conceptos distintos a los de una relación laboral. Requiere la firma
-del pagador para su validez.</div>
+Tributario para retenciones por conceptos distintos a los de una relación laboral, firmado por el
+agente retenedor.</div>
 `;
 
   return documento({

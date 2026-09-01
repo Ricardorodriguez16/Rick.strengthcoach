@@ -14,7 +14,8 @@
       "nombre": "CLAUDIA GARCÍA",
       "cargo": "Rectora y Representante Legal",
       "documento": "32.857.367",
-      "genero": "F"
+      "genero": "F",
+      "firma": "activos/firma-rectora.png"
     }
   },
 
@@ -24,6 +25,7 @@
     "tipoDocumento": "C.C.",
     "documento": "1.043.662.188",
     "profesion": "Abogado",
+    "firma": "activos/firma-contratista.png",
     "banco": "Bancolombia",
     "cuenta": "76937190839"
   },

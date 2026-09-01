@@ -55,7 +55,8 @@ module.exports = `
   .firmas td { border: none; padding: 0; vertical-align: top; }
   .rubrica { border-top: .8pt solid #1a1a1a; padding-top: 5pt; font-size: 10pt; line-height: 1.45; }
   .rubrica .quien { font-size: 10.5pt; font-weight: 700; }
-  .espacio-firma { height: 22mm; }
+  .firma-espacio { height: 24mm; display: flex; align-items: flex-end; overflow: hidden; }
+  .firma-espacio img.firma { max-height: 24mm; max-width: 52mm; margin: 0 0 -3mm 4mm; }
 
   .pie { margin-top: 22pt; border-top: .5pt solid #d4d9e0; padding-top: 7pt;
          font-size: 8pt; color: #7b8593; text-align: justify; line-height: 1.5; }
