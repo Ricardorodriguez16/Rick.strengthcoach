@@ -5,9 +5,10 @@
   "subtitulo": "BEHIND THE LIFT",
   "foto": {
     "archivo": "activos/atleta-08.jpg",
-    "foco": "52% 56%",
-    "zoom": 1.2,
-    "oscurecer": 0.46,
-    "calido": 0.18
+    "foco": "52% 58%",
+    "zoom": 1.16,
+    "oscurecer": 0.5,
+    "saturacion": 0.72,
+    "calido": 0.1
   }
 }
