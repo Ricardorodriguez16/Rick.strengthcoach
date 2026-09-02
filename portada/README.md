@@ -18,6 +18,7 @@ Se deja la foto nueva en `activos/`, se apunta a ella y se sube el número. Nada
   "titulo": "ATHLETE SPOTLIGHT",
   "numero": 9,
   "subtitulo": "BEHIND THE LIFT",
+  "numeroEnDorado": true,   ← el N°9 en el dorado de la cuenta; en false sale todo blanco
 
   "foto": {
     "archivo": "activos/atleta-09.jpg",

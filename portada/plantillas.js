@@ -58,6 +58,8 @@ body{background:#111;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smo
   font-weight:700;font-size:35px;letter-spacing:.012em;color:var(--hueso);
   margin-top:10px;text-shadow:0 3px 20px rgba(0,0,0,.75);
 }
+/* El número de la entrega en el dorado de la cuenta (numeroEnDorado). */
+.titular .oro{color:var(--oro);}
 `;
 
 function portada(d) {
@@ -75,7 +77,7 @@ function portada(d) {
   <div class="velo banda"></div>
   <div class="bloque">
     <div class="cuenta">${esc(d.cuenta)}</div>
-    <div class="titular">${esc(d.titulo)} N°${d.numero}</div>
+    <div class="titular">${esc(d.titulo)} <span class="${d.numeroEnDorado ? 'oro' : ''}">N°${d.numero}</span></div>
     <div class="bajada">${esc(d.subtitulo)}</div>
   </div>
 </div>

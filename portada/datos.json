@@ -3,6 +3,7 @@
   "titulo": "ATHLETE SPOTLIGHT",
   "numero": 8,
   "subtitulo": "BEHIND THE LIFT",
+  "numeroEnDorado": true,
   "foto": {
     "archivo": "activos/atleta-08.jpg",
     "foco": "52% 58%",
