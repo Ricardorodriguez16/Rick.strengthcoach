@@ -1,0 +1,175 @@
+{
+  "serie": {
+    "cuenta": "@rick.strengthcoach",
+    "titulo": "ATHLETE SPOTLIGHT",
+    "subtitulo": "BEHIND THE LIFT",
+    "numero": 8,
+    "totalSlides": 7
+  },
+  "atleta": {
+    "nombre": "Samuel Ríos",
+    "categoria": "Junior · 83 kg",
+    "gimnasio": "Boss Strength Lab",
+    "tiempo": "18 meses entrenando en bloque"
+  },
+  "portada": {
+    "variante": "A",
+    "foto": {
+      "archivo": "activos/atleta-08.jpg",
+      "foco": "54% 62%",
+      "zoom": 1.14
+    },
+    "marcas": [
+      {
+        "etiqueta": "Sentadilla",
+        "valor": "210",
+        "unidad": "kg"
+      },
+      {
+        "etiqueta": "Total",
+        "valor": "580",
+        "unidad": "kg"
+      },
+      {
+        "etiqueta": "Peso corporal",
+        "valor": "83",
+        "unidad": "kg"
+      }
+    ],
+    "encuadres": {
+      "A": {
+        "foco": "54% 62%",
+        "zoom": 1.14
+      },
+      "B": {
+        "foco": "50% 44%",
+        "zoom": 1.02
+      },
+      "C": {
+        "foco": "52% 52%",
+        "zoom": 1.08
+      }
+    }
+  },
+  "slides": {
+    "presentacion": {
+      "rotulo": "Quién es",
+      "titular": "El que no|se saltó|ni un lunes",
+      "cuerpo": "Llegó con <strong>145 kg</strong> de sentadilla y una espalda que se redondeaba en cada repetición pesada. No venía por un programa: venía a arreglar la técnica antes de que la técnica lo arreglara a él.",
+      "foto": {
+        "archivo": "activos/atleta-08.jpg",
+        "foco": "50% 40%",
+        "zoom": 1.5
+      },
+      "ficha": [
+        {
+          "etiqueta": "Categoría",
+          "valor": "Junior · 83 kg"
+        },
+        {
+          "etiqueta": "Con el equipo",
+          "valor": "18 meses"
+        },
+        {
+          "etiqueta": "Levantamiento",
+          "valor": "Sentadilla"
+        }
+      ]
+    },
+    "partida": {
+      "rotulo": "El punto de partida",
+      "titular": "Fuerte,|pero roto",
+      "cita": "Podía con el peso. Lo que no podía era repetirlo dos semanas seguidas sin que me doliera algo.",
+      "cuerpo": "Tres meses sin tocar un PR. La sentadilla se le iba adelante en la salida del hoyo y compensaba con lumbar. No era falta de fuerza: era una posición que se rompía siempre en el mismo punto."
+    },
+    "proceso": {
+      "rotulo": "Lo que cambió",
+      "titular": "Tres decisiones,|nada más",
+      "puntos": [
+        {
+          "titulo": "Bajamos el peso 6 semanas",
+          "texto": "Todo al 70 % con pausa de dos segundos. Lo más difícil del bloque no fue físico: fue aguantar sin cargar la barra."
+        },
+        {
+          "titulo": "Una sola variante por bloque",
+          "texto": "Sentadilla con pausa hasta que la posición aguantara sola. Sin rotar ejercicios cada semana buscando estímulo nuevo."
+        },
+        {
+          "titulo": "RPE por serie, no por sesión",
+          "texto": "Registró cada serie. Cuando el RPE subía dos semanas seguidas con el mismo peso, se descargaba antes de que apareciera el dolor."
+        }
+      ]
+    },
+    "numeros": {
+      "rotulo": "Los números",
+      "titular": "18 meses|en una tabla",
+      "columnas": [
+        "Movimiento",
+        "Antes",
+        "Ahora",
+        "Δ"
+      ],
+      "filas": [
+        {
+          "movimiento": "Sentadilla",
+          "antes": "145",
+          "ahora": "210",
+          "delta": "+65"
+        },
+        {
+          "movimiento": "Banca",
+          "antes": "95",
+          "ahora": "130",
+          "delta": "+35"
+        },
+        {
+          "movimiento": "Peso muerto",
+          "antes": "180",
+          "ahora": "240",
+          "delta": "+60"
+        }
+      ],
+      "total": {
+        "movimiento": "Total",
+        "antes": "420",
+        "ahora": "580",
+        "delta": "+160"
+      },
+      "nota": "Mismo peso corporal: 83 kg de principio a fin."
+    },
+    "momento": {
+      "rotulo": "El día",
+      "titular": "210 kg|a la primera",
+      "cuerpo": "Abrió en 190 y la sacó como calentamiento. La de la foto es la segunda: <strong>210 kg</strong>, PR de competencia y la primera vez que el pecho se quedó arriba todo el ascenso.",
+      "cita": "Cuando la barra se quedó quieta un segundo, ya sabía que subía.",
+      "foto": {
+        "archivo": "activos/atleta-08.jpg",
+        "foco": "50% 46%",
+        "zoom": 1.22
+      }
+    },
+    "cierre": {
+      "rotulo": "Lo que me llevo",
+      "titular": "La paciencia|también|es fuerza",
+      "cuerpo": "No cambiamos de método cada mes. Elegimos uno, lo sostuvimos y dejamos que los números se movieran solos. Eso es lo que separa a los que progresan de los que reinician.",
+      "cta": {
+        "etiqueta": "El cupo de este mes",
+        "texto": "Escríbeme <span class=\"oro\">SPOTLIGHT</span> por DM y revisamos tu sentadilla."
+      }
+    }
+  },
+  "caption": {
+    "gancho": "Llegó levantando 145 kg y con la espalda pidiendo permiso. Hoy sentadilla 210 kg sin dolor.",
+    "hashtags": "#powerlifting #sentadilla #fuerza #entrenamientodefuerza #strengthcoach #prensabanca #pesomuerto #atleta #coaching"
+  },
+  "porConfirmar": [
+    "atleta.nombre",
+    "atleta.categoria",
+    "atleta.gimnasio",
+    "portada.marcas",
+    "slides.numeros.filas",
+    "slides.numeros.total",
+    "slides.momento.cita",
+    "slides.partida.cita"
+  ]
+}
