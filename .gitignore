@@ -1,6 +1,3 @@
 node_modules/
 .DS_Store
 
-# Las tres variantes de portada son para comparar, no para publicar.
-# Se regeneran con: node spotlight/render.js
-spotlight/png/portada-*.png

@@ -1,0 +1,13 @@
+{
+  "cuenta": "@RICK.STRENGTHCOACH",
+  "titulo": "ATHLETE SPOTLIGHT",
+  "numero": 8,
+  "subtitulo": "BEHIND THE LIFT",
+  "foto": {
+    "archivo": "activos/atleta-08.jpg",
+    "foco": "52% 56%",
+    "zoom": 1.2,
+    "oscurecer": 0.46,
+    "calido": 0.18
+  }
+}
