@@ -119,3 +119,8 @@ pdf/                    los mismos documentos en PDF
 - Los aportes del independiente se calculan sobre el IBC del 40 % del contrato mensualizado con piso
   de un salario mínimo (art. 244 de la Ley 1955 de 2019). No se incluye ARL, que en riesgo I corre
   también por cuenta del contratista.
+
+## Otros documentos del repositorio
+
+`derecho-societario/` — manual de trabajo del temario de Derecho societario y empresarial (30 páginas, A4
+apaisado), con su propio generador de PDF. No tiene relación con la documentación contractual descrita arriba.
