@@ -1,0 +1,533 @@
+<title>Plan Cuatro y Seis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    --bg:#F1F3F2;
+    --surface:#FFFFFF;
+    --surface-2:#E9EDEC;
+    --ink:#0E1F23;
+    --ink-2:#4C6462;
+    --line:#D2DAD8;
+    --line-strong:#B6C3C1;
+    --accent:#0C6B72;
+    --accent-ink:#0A555B;
+    --accent-soft:#DBEAE9;
+    --pilates:#8A4A66;
+    --pilates-soft:#F1E2E8;
+    --cardio:#8E6410;
+    --cardio-soft:#F0E7D2;
+    --rest:#6B7A79;
+    --rest-soft:#E4E8E7;
+
+    --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+    --f-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+    --f-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+
+    --step--1:0.812rem;
+    --step-0:1rem;
+    --step-1:1.18rem;
+    --step-2:1.45rem;
+    --step-3:1.9rem;
+    --step-4:2.6rem;
+    --step-5:3.4rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0C1618;
+      --surface:#132125;
+      --surface-2:#182A2E;
+      --ink:#E7EEEC;
+      --ink-2:#9AB2AF;
+      --line:#233639;
+      --line-strong:#31494D;
+      --accent:#4FBFC7;
+      --accent-ink:#7FD6DC;
+      --accent-soft:#0F3439;
+      --pilates:#E191AF;
+      --pilates-soft:#331F28;
+      --cardio:#D6A649;
+      --cardio-soft:#2F2711;
+      --rest:#8FA3A1;
+      --rest-soft:#1C2A2C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0C1618;
+    --surface:#132125;
+    --surface-2:#182A2E;
+    --ink:#E7EEEC;
+    --ink-2:#9AB2AF;
+    --line:#233639;
+    --line-strong:#31494D;
+    --accent:#4FBFC7;
+    --accent-ink:#7FD6DC;
+    --accent-soft:#0F3439;
+    --pilates:#E191AF;
+    --pilates-soft:#331F28;
+    --cardio:#D6A649;
+    --cardio-soft:#2F2711;
+    --rest:#8FA3A1;
+    --rest-soft:#1C2A2C;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:var(--step-0);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:64rem;margin:0 auto;padding:clamp(1.25rem,4vw,3.5rem) clamp(1rem,4vw,2.5rem) 5rem}
+  .prose{max-width:64ch}
+
+  h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.08}
+  h1{font-size:clamp(var(--step-4),9vw,var(--step-5));font-weight:800;letter-spacing:-0.03em}
+  h2{font-size:var(--step-3);font-weight:800;letter-spacing:-0.02em}
+  h3{font-size:var(--step-1);font-weight:600;letter-spacing:-0.01em}
+  p{margin:0}
+  strong{font-weight:600}
+
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:var(--step--1);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+  }
+
+  /* ---------- header ---------- */
+  header.masthead{display:flex;flex-direction:column;gap:1.1rem;padding-bottom:2rem;border-bottom:2px solid var(--ink)}
+  header.masthead .lede{font-size:var(--step-1);color:var(--ink-2);max-width:56ch}
+  .ficha{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:0.5rem;
+  }
+  .ficha div{background:var(--surface);padding:0.85rem 1rem;display:flex;flex-direction:column;gap:0.25rem}
+  .ficha dt{font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2)}
+  .ficha dd{margin:0;font-family:var(--f-display);font-weight:600;font-size:var(--step-1);font-variant-numeric:tabular-nums}
+
+  /* ---------- sections ---------- */
+  section{margin-top:clamp(2.75rem,6vw,4rem)}
+  .sec-head{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.4rem}
+  .sec-head .eyebrow{color:var(--accent-ink)}
+  .sec-head p{color:var(--ink-2);max-width:64ch}
+
+  /* ---------- semana ---------- */
+  .semana{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:0.6rem}
+  .dia{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:3px solid var(--kind,var(--line-strong));
+    padding:0.85rem 0.9rem 1rem;
+    display:flex;flex-direction:column;gap:0.35rem;
+  }
+  .dia .dow{font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2)}
+  .dia .tarea{font-family:var(--f-display);font-weight:600;font-size:var(--step-0);line-height:1.25}
+  .dia .det{font-size:var(--step--1);color:var(--ink-2)}
+  .k-fuerza{--kind:var(--accent)}
+  .k-pilates{--kind:var(--pilates)}
+  .k-cardio{--kind:var(--cardio)}
+  .k-descanso{--kind:var(--rest)}
+
+  /* ---------- sesión ---------- */
+  .sesion{border-top:2px solid var(--accent);background:var(--surface);margin-top:1.5rem}
+  .sesion-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:0.6rem 1rem;
+    padding:1rem 1.1rem;border-bottom:1px solid var(--line);
+  }
+  .sesion-head h3{flex:1 1 14rem}
+  .sesion-head .meta{font-family:var(--f-mono);font-size:var(--step--1);color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .tag{
+    display:inline-block;font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+    padding:0.2rem 0.45rem;background:var(--accent-soft);color:var(--accent-ink);
+  }
+  .tag.pil{background:var(--pilates-soft);color:var(--pilates)}
+  .tag.car{background:var(--cardio-soft);color:var(--cardio)}
+
+  .ex{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+    gap:0.5rem 1.5rem;
+    align-items:start;
+    padding:0.9rem 1.1rem;
+    border-bottom:1px solid var(--line);
+  }
+  .ex:last-child{border-bottom:0}
+  .ex-main{display:flex;gap:0.7rem}
+  .num{font-family:var(--f-mono);font-size:var(--step--1);color:var(--accent);font-weight:600;padding-top:0.15rem;min-width:1.2rem}
+  .ex-name{font-weight:600;display:block}
+  .ex-note{font-size:var(--step--1);color:var(--ink-2);display:block;margin-top:0.15rem}
+  .spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0.5rem;margin:0}
+  .spec div{display:flex;flex-direction:column;gap:0.1rem;min-width:0}
+  .spec dt{font-family:var(--f-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-2)}
+  .spec dd{margin:0;font-family:var(--f-mono);font-size:var(--step--1);font-weight:500;font-variant-numeric:tabular-nums}
+  @media (max-width:44rem){
+    .ex{grid-template-columns:1fr}
+    .spec{padding-left:1.9rem}
+  }
+
+  /* ---------- macros ---------- */
+  .macros{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .macros div{background:var(--surface);padding:1rem;display:flex;flex-direction:column;gap:0.2rem}
+  .macros .cifra{font-family:var(--f-display);font-weight:800;font-size:var(--step-3);letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .macros .u{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-2)}
+  .macros .pie{font-size:var(--step--1);color:var(--ink-2)}
+
+  /* ---------- tabla ---------- */
+  .tabla-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:34rem}
+  th,td{text-align:left;padding:0.7rem 0.9rem;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{
+    font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-2);background:var(--surface-2);border-bottom:1px solid var(--line-strong);white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td.mono{font-family:var(--f-mono);font-size:var(--step--1);font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.sem{font-family:var(--f-display);font-weight:600;white-space:nowrap}
+
+  /* ---------- listas ---------- */
+  ul.limpia{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem}
+  ul.limpia li{padding-left:1.15rem;position:relative;max-width:64ch}
+  ul.limpia li::before{content:"";position:absolute;left:0;top:0.72em;width:0.45rem;height:1px;background:var(--accent)}
+  ol.escalera{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:0.45rem;max-width:64ch}
+  ol.escalera li::marker{font-family:var(--f-mono);font-size:var(--step--1);color:var(--accent)}
+
+  .nota{
+    background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+    padding:1rem 1.1rem;display:flex;flex-direction:column;gap:0.5rem;
+  }
+  .nota.pil{border-left-color:var(--pilates)}
+  .nota.car{border-left-color:var(--cardio)}
+  .nota h3{font-size:var(--step-0)}
+
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1rem}
+
+  code{font-family:var(--f-mono);font-size:0.9em;background:var(--surface-2);padding:0.08em 0.3em}
+  a{color:var(--accent-ink)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--ink-2);font-size:var(--step--1);max-width:64ch;display:flex;flex-direction:column;gap:0.6rem}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="eyebrow">Bloque de 4 semanas · 5 días por semana</span>
+    <h1>Plan Cuatro y Seis</h1>
+    <p class="lede">Tres sesiones de fuerza en casa con el único material disponible —un par de mancuernas de 4&nbsp;kg y otro de 6&nbsp;kg—, dos de pilates a elección y un déficit calórico moderado. La carga es baja, así que el estímulo lo ponen el tempo, las pausas, el trabajo a una pierna y la cercanía al fallo.</p>
+    <dl class="ficha">
+      <div><dt>Atleta</dt><dd>22 años · F</dd></div>
+      <div><dt>Peso</dt><dd>62 kg</dd></div>
+      <div><dt>Material</dt><dd>2×4 y 2×6 kg</dd></div>
+      <div><dt>Cardio</dt><dd>Pasos en casa</dd></div>
+      <div><dt>Objetivo</dt><dd>−0,4 kg/sem</dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">La semana</span>
+      <h2>Cómo queda repartida</h2>
+      <p>Fuerza en días alternos para que cada grupo muscular tenga 48&nbsp;h de recuperación. El pilates cae entre medias: suma movimiento y core sin competir con la fuerza. Si una clase te deja las piernas fundidas, colócala <em>después</em> del día de pierna, nunca antes.</p>
+    </div>
+    <div class="semana">
+      <div class="dia k-fuerza"><span class="dow">Lunes</span><span class="tarea">Día 1 · Pierna y glúteo</span><span class="det">45 min · 6.000 pasos</span></div>
+      <div class="dia k-pilates"><span class="dow">Martes</span><span class="tarea">Pilates a elección</span><span class="det">50 min · 10.000 pasos</span></div>
+      <div class="dia k-fuerza"><span class="dow">Miércoles</span><span class="tarea">Día 2 · Tren superior</span><span class="det">45 min · 6.000 pasos</span></div>
+      <div class="dia k-pilates"><span class="dow">Jueves</span><span class="tarea">Pilates a elección</span><span class="det">50 min · 10.000 pasos</span></div>
+      <div class="dia k-fuerza"><span class="dow">Viernes</span><span class="tarea">Día 3 · Full body</span><span class="det">50 min · 6.000 pasos</span></div>
+      <div class="dia k-cardio"><span class="dow">Sábado</span><span class="tarea">Solo pasos</span><span class="det">12.000 pasos</span></div>
+      <div class="dia k-descanso"><span class="dow">Domingo</span><span class="tarea">Descanso</span><span class="det">Movilidad opcional</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Nutrición</span>
+      <h2>El déficit, en números</h2>
+      <p>Con 62&nbsp;kg, 22 años y esta carga de actividad, el gasto diario ronda las 2.000&nbsp;kcal. Un déficit del 18–20&nbsp;% deja el objetivo aquí. Es suficiente para bajar sin perder músculo ni fuerza, que es justo lo que hace que el peso se quede fuera.</p>
+    </div>
+    <div class="macros">
+      <div><span class="u">Calorías</span><span class="cifra">1.650</span><span class="pie">kcal/día · rango 1.600–1.700</span></div>
+      <div><span class="u">Proteína</span><span class="cifra">125 g</span><span class="pie">2 g/kg · ~30 g por comida</span></div>
+      <div><span class="u">Grasa</span><span class="cifra">55 g</span><span class="pie">0,9 g/kg · no bajar de 45</span></div>
+      <div><span class="u">Carbohidrato</span><span class="cifra">165 g</span><span class="pie">el resto · concéntralo alrededor del entreno</span></div>
+      <div><span class="u">Ritmo</span><span class="cifra">0,4 kg</span><span class="pie">por semana · 0,6 % del peso</span></div>
+    </div>
+    <div class="duo" style="margin-top:1rem">
+      <div class="nota">
+        <h3>Reglas que sostienen el déficit</h3>
+        <ul class="limpia">
+          <li><strong>Proteína primero.</strong> Es lo que protege el músculo cuando comes por debajo del gasto y lo que más sacia. Monta cada comida alrededor de una fuente de 25–35&nbsp;g.</li>
+          <li><strong>Volumen de comida.</strong> Verdura en las dos comidas principales: llena el plato sin llenar el presupuesto calórico.</li>
+          <li><strong>2–2,5 L de agua</strong> y 7–9&nbsp;h de sueño. Dormir mal sube el hambre y baja el rendimiento en la sesión.</li>
+          <li><strong>Nada de días de cero.</strong> Si un día se sale de plan, el siguiente vuelve al mismo número, no a uno más bajo.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h3>Cuándo ajustar</h3>
+        <ul class="limpia">
+          <li>Pésate en ayunas 4–5 mañanas y quédate con la <strong>media semanal</strong>. Un dato suelto no dice nada.</li>
+          <li>Si la media baja <strong>menos de 0,3 kg</strong> dos semanas seguidas: −150&nbsp;kcal <em>o</em> +1.500 pasos diarios. Una cosa, no las dos.</li>
+          <li>Si baja <strong>más de 0,8 kg</strong> por semana: +150&nbsp;kcal. A ese ritmo se pierde músculo.</li>
+          <li>La semana previa a la regla el peso sube por agua. No toques nada; compara con la media de hace cuatro semanas.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Cómo leer las sesiones</span>
+      <h2>Tempo, RIR y carga</h2>
+      <p><strong>Tempo <code>3-1-1</code></strong>: 3&nbsp;s bajando, 1&nbsp;s de pausa en el punto bajo, 1&nbsp;s subiendo. Es la herramienta principal del plan: con 6&nbsp;kg, tres segundos de bajada valen más que cualquier peso que no tienes. <strong>RIR&nbsp;2</strong> significa terminar la serie con dos repeticiones de margen: si al llegar al tope del rango podrías hacer cinco más, sube tempo, pausa o repeticiones antes que peso. <strong>Carga</strong>: <code>6</code> es una mancuerna de 6&nbsp;kg; <code>2×6</code> son las dos; <code>6+4</code> es sujetar las dos juntas con ambas manos (10&nbsp;kg).</p>
+    </div>
+
+    <div class="sesion">
+      <div class="sesion-head">
+        <span class="tag">Día 1</span>
+        <h3>Pierna y glúteo</h3>
+        <span class="meta">45 min · 6 ejercicios</span>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">01</span><span><span class="ex-name">Sentadilla goblet con pausa</span><span class="ex-note">Mancuernas juntas contra el pecho. Talones apoyados, pecho alto, un segundo real abajo sin rebotar.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 × 12-15</dd></div><div><dt>Tempo</dt><dd>3-1-1</dd></div><div><dt>Carga</dt><dd>6+4</dd></div><div><dt>Desc.</dt><dd>75 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">02</span><span><span class="ex-name">Zancada búlgara</span><span class="ex-note">Pie de atrás sobre el sofá. Es el ejercicio más duro de la sesión precisamente porque una pierna sola sí se cansa con 6 kg.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 10-12 / pierna</dd></div><div><dt>Tempo</dt><dd>3-0-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>90 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">03</span><span><span class="ex-name">Peso muerto rumano a una pierna</span><span class="ex-note">Mancuerna en la mano contraria a la pierna que apoya. Cadera atrás, espalda recta, baja hasta notar el isquiotibial.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 10-12 / pierna</dd></div><div><dt>Tempo</dt><dd>3-1-1</dd></div><div><dt>Carga</dt><dd>6</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">04</span><span><span class="ex-name">Hip thrust en el suelo</span><span class="ex-note">Omóplatos apoyados en el sofá, mancuernas sobre la cadera con un cojín. Dos segundos arriba apretando glúteo, sin arquear lumbar.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 15-20</dd></div><div><dt>Tempo</dt><dd>2-2-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">05</span><span><span class="ex-name">Elevación de talón a una pierna</span><span class="ex-note">De pie en un escalón o en el borde de un libro grueso, apoyo con la mano en la pared, mancuerna en la otra.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 15-20 / pierna</dd></div><div><dt>Tempo</dt><dd>2-1-1</dd></div><div><dt>Carga</dt><dd>6</dd></div><div><dt>Desc.</dt><dd>45 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">06</span><span><span class="ex-name">Core: dead bug + plancha lateral</span><span class="ex-note">Alterna las dos sin descanso entre ellas. En el dead bug la lumbar no se despega del suelo en ningún momento.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 10/lado + 30 s</dd></div><div><dt>Tempo</dt><dd>Control</dd></div><div><dt>Carga</dt><dd>—</dd></div><div><dt>Desc.</dt><dd>45 s</dd></div></dl>
+      </div>
+    </div>
+
+    <div class="sesion">
+      <div class="sesion-head">
+        <span class="tag">Día 2</span>
+        <h3>Tren superior y core</h3>
+        <span class="meta">45 min · 7 ejercicios</span>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">01</span><span><span class="ex-name">Flexiones</span><span class="ex-note">Progresión: manos en la encimera → en una silla → en el suelo. Cambia de nivel cuando pases de 15 repeticiones limpias.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 × 8-15</dd></div><div><dt>Tempo</dt><dd>3-0-1</dd></div><div><dt>Carga</dt><dd>Peso corporal</dd></div><div><dt>Desc.</dt><dd>90 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">02</span><span><span class="ex-name">Remo a una mano</span><span class="ex-note">Rodilla y mano en una silla, espalda paralela al suelo. Un segundo arriba con el codo pegado al costado.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 × 12-15 / lado</dd></div><div><dt>Tempo</dt><dd>2-1-1</dd></div><div><dt>Carga</dt><dd>6</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">03</span><span><span class="ex-name">Press militar de pie</span><span class="ex-note">Costillas abajo, glúteo apretado. Baja hasta que los codos pasen de la altura de los hombros.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 × 10-12</dd></div><div><dt>Tempo</dt><dd>3-0-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>75 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">04</span><span><span class="ex-name">Pull-over en el suelo</span><span class="ex-note">Tumbada, una mancuerna sujeta con las dos manos. Brazos casi rectos, estira dorsal hasta tocar el suelo por detrás.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 15</dd></div><div><dt>Tempo</dt><dd>3-1-1</dd></div><div><dt>Carga</dt><dd>6+4</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">05</span><span><span class="ex-name">Elevaciones laterales</span><span class="ex-note">Aquí 4 kg sobran: sube despacio, baja en 3 s y termina la última serie con repeticiones parciales hasta que ardan.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 15-20</dd></div><div><dt>Tempo</dt><dd>1-0-3</dd></div><div><dt>Carga</dt><dd>2×4</dd></div><div><dt>Desc.</dt><dd>45 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">06</span><span><span class="ex-name">Superserie curl + tríceps sobre la cabeza</span><span class="ex-note">Una detrás de otra sin descanso; el descanso va al final de la pareja.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 12-15 + 12-15</dd></div><div><dt>Tempo</dt><dd>2-0-2</dd></div><div><dt>Carga</dt><dd>2×6 / 6+4</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">07</span><span><span class="ex-name">Core: plancha + hollow hold</span><span class="ex-note">Plancha con glúteo apretado y cadera baja. En el hollow, lumbar pegada al suelo aunque tengas que subir más los pies.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 40-60 s + 20-30 s</dd></div><div><dt>Tempo</dt><dd>Isométrico</dd></div><div><dt>Carga</dt><dd>—</dd></div><div><dt>Desc.</dt><dd>45 s</dd></div></dl>
+      </div>
+    </div>
+
+    <div class="sesion">
+      <div class="sesion-head">
+        <span class="tag">Día 3</span>
+        <h3>Full body y cadena posterior</h3>
+        <span class="meta">50 min · 6 bloques</span>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">01</span><span><span class="ex-name">Peso muerto rumano</span><span class="ex-note">Cuatro segundos de bajada. Con 12 kg totales el tempo es lo único que convierte esto en un estímulo real.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 × 12-15</dd></div><div><dt>Tempo</dt><dd>4-0-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>75 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">02</span><span><span class="ex-name">Zancada inversa con déficit</span><span class="ex-note">Pie de delante sobre un libro grueso o un escalón: más recorrido, más glúteo, mismo peso.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 10-12 / pierna</dd></div><div><dt>Tempo</dt><dd>3-0-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>75 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">03</span><span><span class="ex-name">Remo en bisagra a dos manos</span><span class="ex-note">Cadera atrás, torso a 45°. Lleva los codos hacia atrás, no hacia fuera.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 12-15</dd></div><div><dt>Tempo</dt><dd>2-1-1</dd></div><div><dt>Carga</dt><dd>2×6</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">04</span><span><span class="ex-name">Puente de glúteo a una pierna</span><span class="ex-note">Sin peso, pero con dos segundos arriba y sin dejar caer la cadera del lado libre.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 12-15 / pierna</dd></div><div><dt>Tempo</dt><dd>2-2-1</dd></div><div><dt>Carga</dt><dd>—</dd></div><div><dt>Desc.</dt><dd>45 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">05</span><span><span class="ex-name">Y-T-W boca abajo</span><span class="ex-note">Tumbada boca abajo, mancuernas ligeras. Compensa las horas de hombro adelantado y el trabajo de empuje del día 2.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>3 × 10 de cada</dd></div><div><dt>Tempo</dt><dd>1-2-1</dd></div><div><dt>Carga</dt><dd>2×4</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+      <div class="ex">
+        <div class="ex-main"><span class="num">06</span><span><span class="ex-name">Finisher metabólico · 4 rondas</span><span class="ex-note">Seguido, con 60 s entre rondas: 12 thrusters (2×4) → 45 s de marcha rápida en el sitio con rodilla alta → 20 escaladores → 20 sentadillas al aire. Termina en 10–12 min.</span></span></div>
+        <dl class="spec"><div><dt>Series</dt><dd>4 rondas</dd></div><div><dt>Tempo</dt><dd>Rápido</dd></div><div><dt>Carga</dt><dd>2×4</dd></div><div><dt>Desc.</dt><dd>60 s</dd></div></dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Días 4 y 5</span>
+      <h2>Pilates, a tu elección</h2>
+      <p>La clase la eliges tú —mat, reformer, online o presencial—, pero conviene que sepas para qué está en el plan: movilidad, control del core y trabajo de estabilidad que la fuerza en casa no cubre. No es el día de cardio ni el día de descanso.</p>
+    </div>
+    <div class="duo">
+      <div class="nota pil">
+        <h3>Qué buscar en la clase</h3>
+        <ul class="limpia">
+          <li><strong>45–55 minutos.</strong> Por debajo de 40 se queda corto para lo que buscamos.</li>
+          <li><strong>Prioriza clases de core, cadera y columna.</strong> Si eliges reformer, las de piernas y glúteo van bien el martes; el jueves mejor algo de core y movilidad, que el viernes toca full body.</li>
+          <li><strong>No la conviertas en HIIT.</strong> Las clases tipo "power pilates" a máxima intensidad los cinco días acumulan fatiga sin sumar músculo.</li>
+          <li><strong>Respira y controla.</strong> El valor está en la calidad del movimiento, no en terminar reventada.</li>
+        </ul>
+      </div>
+      <div class="nota pil">
+        <h3>Cómo encaja con la fuerza</h3>
+        <ul class="limpia">
+          <li>Si la clase te deja las piernas muy cargadas, muévela al día <em>siguiente</em> al de pierna, no al anterior.</li>
+          <li>Un día de fuerza y uno de pilates seguidos están bien; dos días de pilates seguidos también, si la semana se tuerce.</li>
+          <li>El pilates <strong>no sustituye</strong> a las tres sesiones de fuerza. Si hay que recortar la semana, se recorta pilates.</li>
+          <li>Cuenta unas 200–250&nbsp;kcal por clase: está incluido en el gasto del que sale el déficit, no lo sumes aparte.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Cardio</span>
+      <h2>Los pasos en casa</h2>
+      <p>Los pasos son la palanca de gasto más fiable que tienes: no interfieren con la fuerza, no acumulan fatiga y se ajustan sin tocar la comida. Marchando en el sitio salen unos <strong>110 pasos por minuto</strong>, así que 15 minutos ≈ 1.600 pasos.</p>
+    </div>
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Bloque</th><th>Cuándo</th><th>Duración</th><th>Pasos</th></tr></thead>
+        <tbody>
+          <tr><td>Marcha en el sitio</td><td>Mientras ves una serie, por la mañana</td><td class="mono">20 min</td><td class="mono">~2.200</td></tr>
+          <tr><td>Paseo digestivo</td><td>Después de comer</td><td class="mono">10-15 min</td><td class="mono">~1.400</td></tr>
+          <tr><td>Marcha con rodilla alta</td><td>Tarde, en dos tandas de 10 min</td><td class="mono">20 min</td><td class="mono">~2.400</td></tr>
+          <tr><td>Escaleras (si tienes)</td><td>Cualquier momento · 6 subidas</td><td class="mono">10 min</td><td class="mono">~1.200</td></tr>
+          <tr><td>Vida diaria</td><td>Recados, casa, moverte al hablar por teléfono</td><td class="mono">—</td><td class="mono">2.000-3.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota car" style="margin-top:1rem">
+      <h3>Objetivo por semana</h3>
+      <p>Semana 1: <strong>7.000</strong> pasos de media diaria. Sube 1.000 cada semana hasta llegar a <strong>10.000</strong> y ahí se queda. Guarda ese margen: cuando el peso se estanque, subir pasos es más fácil de sostener que bajar calorías otra vez.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Progresión</span>
+      <h2>Cuatro semanas, una ola</h2>
+      <p>El peso no va a subir —solo tienes 4 y 6 kg—, así que lo que sube es la exigencia. Cada semana te acercas más al fallo, y la cuarta baja para que la quinta empiece más fuerte.</p>
+    </div>
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Semana</th><th>Intención</th><th>Series</th><th>Repeticiones</th><th>RIR</th><th>Pasos/día</th><th>Comida</th></tr></thead>
+        <tbody>
+          <tr><td class="sem">1</td><td>Aprender los patrones y el tempo</td><td class="mono">Las escritas</td><td class="mono">Rango bajo</td><td class="mono">3</td><td class="mono">7.000</td><td class="mono">1.650 kcal</td></tr>
+          <tr><td class="sem">2</td><td>Sumar repeticiones con la misma técnica</td><td class="mono">Las escritas</td><td class="mono">+1-2 por serie</td><td class="mono">2</td><td class="mono">8.000</td><td class="mono">1.650 kcal</td></tr>
+          <tr><td class="sem">3</td><td>Semana dura: tope del rango</td><td class="mono">+1 en el ej. 1</td><td class="mono">Rango alto</td><td class="mono">1</td><td class="mono">9.000</td><td class="mono">1.650 kcal</td></tr>
+          <tr><td class="sem">4</td><td>Descarga: recuperar para volver a subir</td><td class="mono">2 por ejercicio</td><td class="mono">Rango bajo</td><td class="mono">4</td><td class="mono">10.000</td><td class="mono">1.900 kcal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota" style="margin-top:1rem">
+      <h3>La escalera de sobrecarga</h3>
+      <p style="color:var(--ink-2)">Cuando un ejercicio se te quede fácil y no puedas añadir kilos, baja por esta lista en orden. Cada peldaño da varias semanas de margen.</p>
+      <ol class="escalera">
+        <li>Más repeticiones dentro del rango.</li>
+        <li>Más tiempo bajando: de 3 a 4 s de excéntrica.</li>
+        <li>Pausa en el punto más difícil: 1 s → 2 s.</li>
+        <li>Más recorrido: pie elevado, déficit, mayor rango.</li>
+        <li>A una pierna o un brazo (aquí duplicas la carga relativa de golpe).</li>
+        <li>Menos descanso: de 75 s a 60 s.</li>
+        <li>Una serie más en el primer ejercicio del día.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Antes y después</span>
+      <h2>Calentamiento y vuelta a la calma</h2>
+    </div>
+    <div class="duo">
+      <div class="nota">
+        <h3>Calentamiento · 6 min, todos los días</h3>
+        <ul class="limpia">
+          <li>90 s de marcha en el sitio subiendo el ritmo.</li>
+          <li>Gato-camello ×10 · círculos de brazos ×10 en cada sentido.</li>
+          <li>Bird dog ×8 por lado, despacio.</li>
+          <li>Día 1 y 3: 15 sentadillas al aire + 10 bisagras de cadera + 10 zancadas sin peso.</li>
+          <li>Día 2: 10 flexiones inclinadas + 15 elevaciones laterales sin peso.</li>
+          <li>Primera serie de cada ejercicio: la mitad de las repeticiones a modo de aproximación.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h3>Vuelta a la calma · 5 min</h3>
+        <ul class="limpia">
+          <li>Respiración 4-6 tumbada, 8 ciclos: baja pulsaciones y cierra la sesión.</li>
+          <li>Estiramiento de flexor de cadera 40 s por lado (días 1 y 3).</li>
+          <li>Postura del niño con brazos extendidos, 60 s.</li>
+          <li>Pectoral en el marco de la puerta 30 s por lado (día 2).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Control</span>
+      <h2>Qué anotar cada semana</h2>
+      <p>Lo que se mide es lo que progresa. Cuatro datos bastan y se apuntan en dos minutos.</p>
+    </div>
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Dato</th><th>Cuándo</th><th>Qué te dice</th></tr></thead>
+        <tbody>
+          <tr><td>Media de peso semanal</td><td class="mono">4-5 mañanas en ayunas</td><td>Si el déficit está funcionando o hay que ajustarlo</td></tr>
+          <tr><td>Repeticiones por ejercicio</td><td class="mono">Al terminar cada serie</td><td>Si estás progresando en fuerza pese al déficit</td></tr>
+          <tr><td>Pasos diarios</td><td class="mono">Móvil o reloj</td><td>La variable que más se cae sin darte cuenta</td></tr>
+          <tr><td>Energía y sueño (1-5)</td><td class="mono">Antes de entrenar</td><td>Dos días seguidos por debajo de 3: quita una serie de cada ejercicio</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Cuando termine el bloque.</strong> Al acabar la semana 4 repite las cuatro semanas subiendo un peldaño en la escalera de sobrecarga en cada ejercicio. Si al cabo de dos bloques las mancuernas de 6 kg se te quedan cortas en todo, el siguiente paso de material no es más mancuernas: son bandas de resistencia o un chaleco lastrado, que multiplican lo que ya tienes.</p>
+    <p>Plan orientativo. Si aparece dolor articular, mareo o algo que no encaja con la fatiga normal del entrenamiento, para y consúltalo con un profesional sanitario.</p>
+  </footer>
+
+</div>
