@@ -1,6 +1,6 @@
 # Plan Cuatro y Seis
 
-Plan de entrenamiento de cinco sesiones semanales para una atleta de 22 años y 62 kg que entrena
+Plan de entrenamiento de cinco sesiones semanales para una atleta de 22 años y 66 kg que entrena
 en casa con un par de mancuernas de 4 kg y otro de 6 kg, y que busca perder grasa en déficit
 calórico.
 
@@ -20,8 +20,8 @@ se genera con tempo (excéntricas de 3-4 s), pausas, trabajo a una pierna y cerc
 (RIR 3 → 1 a lo largo del bloque), no con peso. La progresión sube exigencia semana a semana y
 descarga en la cuarta.
 
-El déficit sale de un gasto estimado en ~2.000 kcal (Mifflin-St Jeor con factor de actividad 1,45
-por 3 sesiones de fuerza, 2 de pilates y 7-10 k pasos): 1.650 kcal, 2 g/kg de proteína y un ritmo
+El déficit sale de un gasto estimado en ~2.050 kcal (Mifflin-St Jeor con factor de actividad 1,45
+por 3 sesiones de fuerza, 2 de pilates y 7-10 k pasos): 1.700 kcal, 2 g/kg de proteína y un ritmo
 de pérdida de 0,4 kg por semana. Los pasos quedan por debajo del máximo a propósito, como margen
 para cuando el peso se estanque.
 
