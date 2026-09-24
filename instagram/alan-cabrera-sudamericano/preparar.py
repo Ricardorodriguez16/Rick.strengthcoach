@@ -49,14 +49,22 @@ def logo_lipoa():
     # Fuera del círculo (y su borde, que arrastra el gris de la app) todo pasa a blanco.
     yy, xx = np.mgrid[0:800, 0:800]
     dentro = np.clip(383 - np.hypot(xx - 400 + .5, yy - 400 + .5), 0, 1)[..., None]
-    img = (img * dentro + 255 * (1 - dentro)).clip(0, 255).astype(np.uint8)
-    # JPG ajustado al logo, con margen blanco.
-    ys, xs = np.where(img.min(axis=2) < 200)
-    logo = img[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
-    margen = round(logo.shape[1] * .08)
-    lienzo = Image.new('RGB', (logo.shape[1] + 2 * margen, logo.shape[0] + 2 * margen), 'white')
-    lienzo.paste(Image.fromarray(logo), (margen, margen))
-    lienzo.save(ACTIVOS / 'lipoa.jpg', quality=95, subsampling=0)
+    img = (img * dentro + 255 * (1 - dentro)).clip(0, 255)
+    # Fondo = el blanco que toca el borde; los blancos propios del logo (disco, letras) se quedan.
+    claro = (img.min(axis=2) > 235).astype(np.uint8)
+    _, etiquetas = cv2.connectedComponents(claro, connectivity=4)
+    borde = np.unique(np.r_[etiquetas[0], etiquetas[-1], etiquetas[:, 0], etiquetas[:, -1]])
+    fondo = np.isin(etiquetas, borde[borde > 0])
+    # En el filo (2 px) el blanco se convierte en transparencia para que no quede halo claro.
+    distancia = cv2.distanceTransform((~fondo).astype(np.uint8), cv2.DIST_L2, 3)
+    filo = (distancia > 0) & (distancia <= 2)
+    alfa = np.where(fondo, 0, 1).astype(np.float32)
+    alfa[filo] = ((255 - img[filo]) / 255).max(axis=1)
+    rgb = np.where(filo[..., None], (img - 255 * (1 - alfa[..., None])) / np.maximum(alfa[..., None], 1e-3), img)
+    rgba = np.dstack([rgb.clip(0, 255), alfa * 255]).astype(np.uint8)
+    ys, xs = np.where(alfa > .02)
+    rgba = rgba[ys.min() - 2:ys.max() + 3, xs.min() - 2:xs.max() + 3]
+    Image.fromarray(rgba, 'RGBA').save(ACTIVOS / 'lipoa.png', optimize=True)
 
 
 def logo_sudamericano():
@@ -76,4 +84,4 @@ if __name__ == '__main__':
     recorte_atleta()
     logo_lipoa()
     logo_sudamericano()
-    print('Listo: activos/atleta.png, activos/lipoa.jpg, activos/sudamericano.png')
+    print('Listo: activos/atleta.png, activos/lipoa.png, activos/sudamericano.png')

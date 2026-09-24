@@ -69,12 +69,8 @@
     position: absolute; left: var(--margen); right: var(--margen); top: 56px;
     display: flex; justify-content: space-between; align-items: center;
   }
-  /* El logo de la liga va tal cual el JPG: rectángulo blanco, sin recorte circular. */
-  .insignia {
-    width: 190px; overflow: hidden; border-radius: 6px; background: #fff;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, .06), 0 18px 40px rgba(0, 0, 0, .45);
-  }
-  .insignia img { display: block; width: 100%; }
+  /* Logo de la liga sin fondo; un filo claro de 1 px evita que el negro de las alas se pierda. */
+  .insignia { display: block; width: 214px; filter: drop-shadow(0 0 1px rgba(255, 255, 255, .4)); }
   .sudamericano { display: block; height: 176px; margin-right: -6px; }
 
   /* Ficha */
@@ -143,7 +139,7 @@
   <div class="capa velo"></div>
 
   <header class="cabecera">
-    <div class="insignia"><img src="activos/lipoa.jpg" alt="LIPOA · Liga de Levantamiento de Potencia del Atlántico"></div>
+    <img class="insignia" src="activos/lipoa.png" alt="LIPOA · Liga de Levantamiento de Potencia del Atlántico">
     <img class="sudamericano" src="activos/sudamericano.png" alt="South American FESUPO Championships · Chile 2026">
   </header>
 
