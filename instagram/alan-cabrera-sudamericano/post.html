@@ -70,10 +70,12 @@
     display: flex; justify-content: space-between; align-items: center;
   }
   .insignia {
+    position: relative; overflow: hidden;
     width: 164px; height: 164px; border-radius: 50%; background: #fff;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, .06), 0 18px 40px rgba(0, 0, 0, .45);
   }
-  .insignia img { display: block; width: 100%; height: 100%; }
+  /* El JPG trae margen blanco: se amplía para que las alas lleguen casi al borde, como en su perfil. */
+  .insignia img { position: absolute; left: 50%; top: 50%; width: 108%; transform: translate(-50%, -50%); }
   .sudamericano { display: block; height: 176px; margin-right: -6px; }
 
   /* Ficha */
@@ -142,7 +144,7 @@
   <div class="capa velo"></div>
 
   <header class="cabecera">
-    <div class="insignia"><img src="activos/lipoa.png" alt="LIPOA · Liga de Levantamiento de Potencia del Atlántico"></div>
+    <div class="insignia"><img src="activos/lipoa.jpg" alt="LIPOA · Liga de Levantamiento de Potencia del Atlántico"></div>
     <img class="sudamericano" src="activos/sudamericano.png" alt="South American FESUPO Championships · Chile 2026">
   </header>
 

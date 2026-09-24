@@ -39,18 +39,24 @@ def recorte_atleta():
     rgb.save(ACTIVOS / 'atleta.png', optimize=True)
 
 
-def insignia_lipoa():
+def logo_lipoa():
     # Foto de perfil de Instagram: círculo de r=388 centrado en (400, 400).
     img = np.asarray(Image.open(FUENTES / 'lipoa-perfil.png').convert('RGB')).astype(np.float32)
     lum, sat = img.mean(axis=2), img.max(axis=2) - img.min(axis=2)
     # El fondo es blanco hueso con una raya gris arriba: todo lo claro y neutro pasa a blanco puro.
     peso = np.clip((lum - 196) / 30, 0, 1) * np.clip((40 - sat) / 20, 0, 1)
     img = img + (255 - img) * peso[..., None]
-    lado, r = 800, 388
-    yy, xx = np.mgrid[0:lado, 0:lado]
-    alfa = np.clip(r - np.hypot(xx - 400 + .5, yy - 400 + .5), 0, 1)
-    rgba = np.dstack([img, alfa * 255]).clip(0, 255).astype(np.uint8)
-    Image.fromarray(rgba, 'RGBA').crop((12, 12, 788, 788)).save(ACTIVOS / 'lipoa.png', optimize=True)
+    # Fuera del círculo (y su borde, que arrastra el gris de la app) todo pasa a blanco.
+    yy, xx = np.mgrid[0:800, 0:800]
+    dentro = np.clip(383 - np.hypot(xx - 400 + .5, yy - 400 + .5), 0, 1)[..., None]
+    img = (img * dentro + 255 * (1 - dentro)).clip(0, 255).astype(np.uint8)
+    # JPG ajustado al logo, con margen blanco.
+    ys, xs = np.where(img.min(axis=2) < 200)
+    logo = img[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+    margen = round(logo.shape[1] * .08)
+    lienzo = Image.new('RGB', (logo.shape[1] + 2 * margen, logo.shape[0] + 2 * margen), 'white')
+    lienzo.paste(Image.fromarray(logo), (margen, margen))
+    lienzo.save(ACTIVOS / 'lipoa.jpg', quality=95, subsampling=0)
 
 
 def logo_sudamericano():
@@ -68,6 +74,6 @@ def logo_sudamericano():
 if __name__ == '__main__':
     ACTIVOS.mkdir(exist_ok=True)
     recorte_atleta()
-    insignia_lipoa()
+    logo_lipoa()
     logo_sudamericano()
-    print('Listo: activos/atleta.png, activos/lipoa.png, activos/sudamericano.png')
+    print('Listo: activos/atleta.png, activos/lipoa.jpg, activos/sudamericano.png')

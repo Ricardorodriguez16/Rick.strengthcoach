@@ -33,7 +33,7 @@ post.html        diseño (tipografías y colores en :root)
 preparar.py      fuentes/ → activos/
 render.js        exporta el PNG
 fuentes/         foto original y logos tal como llegaron
-activos/         atleta recortado, insignia de LIPOA y logo del Sudamericano sin fondo
+activos/         atleta recortado, logo de LIPOA en JPG y logo del Sudamericano sin fondo
 tipografias/     Big Shoulders Display y Barlow Condensed (SIL OFL)
 filosofia.md     criterio visual del post
 ```
