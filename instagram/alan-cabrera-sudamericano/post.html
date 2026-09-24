@@ -69,13 +69,12 @@
     position: absolute; left: var(--margen); right: var(--margen); top: 56px;
     display: flex; justify-content: space-between; align-items: center;
   }
+  /* El logo de la liga va tal cual el JPG: rectángulo blanco, sin recorte circular. */
   .insignia {
-    position: relative; overflow: hidden;
-    width: 164px; height: 164px; border-radius: 50%; background: #fff;
+    width: 190px; overflow: hidden; border-radius: 6px; background: #fff;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, .06), 0 18px 40px rgba(0, 0, 0, .45);
   }
-  /* El JPG trae margen blanco: se amplía para que las alas lleguen casi al borde, como en su perfil. */
-  .insignia img { position: absolute; left: 50%; top: 50%; width: 108%; transform: translate(-50%, -50%); }
+  .insignia img { display: block; width: 100%; }
   .sudamericano { display: block; height: 176px; margin-right: -6px; }
 
   /* Ficha */
