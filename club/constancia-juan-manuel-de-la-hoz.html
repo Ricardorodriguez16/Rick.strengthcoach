@@ -8,7 +8,7 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: #eef0f3; color: #15161b;
          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 11pt; line-height: 1.5; }
-  .hoja { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; display: flex; flex-direction: column; }
+  .hoja { width: 210mm; min-height: 296mm; margin: 0 auto; background: #fff; display: flex; flex-direction: column; }
 
   .banda { background: linear-gradient(135deg, #0f1b3a 0%, #1c2e5a 100%); color: #fff;
            padding: 12mm 18mm 10mm; display: flex; align-items: center; gap: 9mm; }
@@ -51,7 +51,7 @@
   @media print {
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body { background: #fff; }
-    .hoja { width: auto; box-shadow: none; }
+    .hoja { width: auto; height: 296mm; min-height: 0; overflow: hidden; }
   }
 </style>
 </head>
