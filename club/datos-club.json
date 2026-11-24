@@ -1,0 +1,40 @@
+{
+  "club": {
+    "nombre": "STRENGTH GANG POWERLIFTING CLUB",
+    "lema": "Club de powerlifting · Colombia",
+    "logo": "activos/logo-club.png",
+    "ciudad": "Barranquilla",
+    "departamento": "Atlántico",
+    "telefono": "",
+    "correo": "",
+    "nit": ""
+  },
+
+  "firmante": {
+    "nombre": "RICARDO RODRÍGUEZ",
+    "cargo": "Entrenador y Director Técnico",
+    "tipoDocumento": "C.C.",
+    "documento": "1.043.662.188",
+    "firma": "../activos/firma-contratista.png"
+  },
+
+  "deportista": {
+    "nombre": "JUAN MANUEL DE LA HOZ GILL",
+    "tipoDocumento": "C.C.",
+    "documento": "1.044.624.533",
+    "modalidad": "Powerlifting (sentadilla, press de banca y peso muerto)",
+    "condicion": "Deportista activo del club",
+    "participaciones": [
+      "Torneos departamentales de powerlifting, en representación del club.",
+      "Campeonato Nacional IPF, celebrado en mayo de 2026 en Valledupar (Cesar), en representación del club."
+    ]
+  },
+
+  "documento": {
+    "dirigidoA": "",
+    "ciudadExpedicion": "Barranquilla, Atlántico",
+    "fechaExpedicion": "2026-11-24",
+    "consecutivo": "",
+    "motivo": "a solicitud del interesado, para ser presentada ante la institución universitaria donde adelanta sus estudios"
+  }
+}
