@@ -1,0 +1,43 @@
+fecha,vuelo,aerolinea,origen,destino,evidencia
+2022-01-21,AV8525,Avianca,BAQ,BOG,pase de abordar
+2022-01-24,AV9526,Avianca,BOG,BAQ,misma reserva (regreso)
+2022-06-03,LA4309,LATAM,BAQ,MDE,voucher Despegar + eticket
+2022-06-05,LA4306,LATAM,MDE,BAQ,voucher Despegar + eticket
+2023-11-13,AV8431,Avianca,BAQ,BOG,pase de abordar
+2024-06-25,LA4035,LATAM,CUC,BOG,comprobante de compra
+2024-06-25,LA4026,LATAM,BOG,BAQ,comprobante + tarjeta de embarque
+2024-09-15,CM875,Copa,SMR,PTY,boleto electronico
+2024-09-15,CM454,Copa,PTY,EZE,boleto electronico
+2024-09-22,CM501,Copa,EZE,PTY,pase de abordar
+2024-09-22,CM874,Copa,PTY,SMR,boleto electronico
+2024-09-30,LA4123,LATAM,BAQ,BOG,tarjeta de embarque
+2024-10-04,LA4132,LATAM,BOG,BAQ,tarjeta de embarque
+2025-01-08,LA4123,LATAM,BAQ,BOG,comprobante + tarjeta de embarque
+2025-01-08,LA4012,LATAM,BOG,MDE,comprobante de compra
+2025-01-14,LA4302,LATAM,MDE,BAQ,comprobante + tarjeta de embarque
+2025-06-18,LA4097,LATAM,CTG,BOG,comprobante + tarjeta de embarque
+2025-06-18,LA4057,LATAM,BOG,CLO,comprobante + tarjeta de embarque
+2025-06-23,LA4054,LATAM,CLO,BOG,comprobante + tarjeta de embarque
+2025-06-23,LA4094,LATAM,BOG,CTG,comprobante de compra
+2025-09-16,CM827,Copa,BAQ,PTY,boleto electronico
+2025-09-16,CM423,Copa,PTY,FLN,boleto electronico
+2025-09-25,LA719,LATAM,FLN,SCL,tarjeta de embarque
+2025-09-25,LA710,LATAM,SCL,BOG,tarjeta de embarque
+2025-09-25,LA4130,LATAM,BOG,BAQ,tarjeta de embarque
+2026-01-22,LA4123,LATAM,BAQ,BOG,comprobante + tarjeta de embarque
+2026-01-26,LA4146,LATAM,BOG,BAQ,comprobante + tarjeta de embarque
+2026-06-23,AV8529,Avianca,BAQ,BOG,eticket
+2026-06-23,AV44,Avianca,BOG,MEX,eticket
+2026-06-28,CM149,Copa,MEX,PTY,pase de abordar
+2026-06-28,CM790,Copa,PTY,BAQ,pase de abordar
+2026-07-24,AV9373,Avianca,CTG,MDE,eticket
+2026-07-26,AV8586,Avianca,MDE,BAQ,eticket + aviso de embarque
+2026-09-05,LA4143,LATAM,BAQ,BOG,comprobante + tarjeta de embarque
+2026-09-05,LA575,LATAM,BOG,SCL,comprobante + tarjeta de embarque
+2026-09-09,JA1094,JetSMART,SCL,AEP,confirmacion de itinerario
+2026-09-16,AV154,Avianca,AEP,BOG,eticket
+2026-09-16,AV9512,Avianca,BOG,BAQ,eticket + aviso de embarque
+2026-10-31,LA4325,LATAM,BAQ,MDE,comprobante de compra
+2026-11-04,LA4328,LATAM,MDE,BAQ,comprobante de compra
+2026-11-23,AV8533,Avianca,BAQ,MDE,aviso de embarque
+2026-11-26,LA4324,LATAM,MDE,BAQ,comprobante + tarjeta de embarque
